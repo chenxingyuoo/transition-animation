@@ -1,0 +1,29 @@
+{
+  "name": "transition-animation",
+  "version": "1.0.0",
+  "description": "transition animation",
+  "main": "/dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "./node_modules/.bin/tsc",
+    "test": "mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chenxingyuoo/transition-animation.git"
+  },
+  "keywords": [
+    "easings",
+    "animation",
+    "transition animation",
+    "keyframe animation"
+  ],
+  "author": "chenxingyu <2731173104@qq.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^12.12.6",
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2",
+    "typescript": "^3.7.2"
+  }
+}
