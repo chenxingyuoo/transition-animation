@@ -44,14 +44,14 @@ ANIMATION.animation = (options: Options): any => {
     throw Error(`Start or end value cannot be less than 0`)
   }
 
-  let elapsed = (current - start)
+  let time = (current - start)
   let duration = (end - start)
 
   easeFn = easeFn || ANIMATION.Easing.linear
 
   // 处理undefined
   if (isUndefined(form) || isUndefined(to)) {
-    let num = easeFn(elapsed, 0, 1, duration)
+    let num = easeFn(time, 0, 1, duration)
     if (num > 1) {
       num = 1
     }
@@ -75,7 +75,7 @@ ANIMATION.animation = (options: Options): any => {
 
       const change = toValue - formValue
 
-      result[key] = easeFn(elapsed, formValue, change, duration)
+      result[key] = easeFn(time, formValue, change, duration)
     }
   }
   
@@ -87,7 +87,7 @@ ANIMATION.animation = (options: Options): any => {
 ANIMATION.Easing = {
   /**
    * 线性动画
-   * @param {number} elapsed 当前值
+   * @param {number} elapsed 经过的时间
    * @param {number} initialValue 初始值
    * @param {number} amountOfChange 结束值
    * @param {number} duration 动画时长
