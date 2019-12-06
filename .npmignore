@@ -1,2 +1,7 @@
 src/
 examples/
+node_modules/
+test/
+.gitignore
+tsconfig.json
+yarn.lock

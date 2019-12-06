@@ -68,34 +68,14 @@ ANIMATION.animation = (options: Options): any => {
     if (to.hasOwnProperty(key)) {
       const formValue = Number(form[key])
       const toValue = Number(to[key])
-      let num
 
       if (isNaN(formValue) || isNaN(toValue)) {
         throw Error('value is not number')
       }
 
-      if (formValue < toValue) {
-        const newFormValue = formValue - formValue
-        const newToValue = toValue - formValue
-        num = easeFn(elapsed, newFormValue, newToValue, duration)
+      const change = toValue - formValue
 
-        num = num + formValue
-
-        if (num > toValue) {
-          num = toValue
-        }
-      } else {
-        const newFormValue = formValue - formValue
-        const newToValue = (formValue - toValue)
-        num = easeFn(elapsed, newFormValue, newToValue, duration)
-
-        num = formValue - num
-
-        if (num < toValue) {
-          num = toValue;
-        }
-      }
-      result[key] = num
+      result[key] = easeFn(elapsed, formValue, change, duration)
     }
   }
   
